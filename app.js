@@ -18,8 +18,8 @@ class Career {
 
 const careerDescriptions = [
     {
-        name: 'lawyer',
-        description: 'works as an attorney of a high end law firm'
+        name: 'secret agent',
+        description: 'dressed to kill'
     },
     {
         name: 'software-engineer',
@@ -72,15 +72,15 @@ class Clothing {
 }
 
 const birkin = new Clothing('Birkin Bag', 'Hermes', 'purple', 'bag', 'lg', 15470 )
-
+const redBottoms = new Clothing('Red Bottoms', 'Christian Loboutin', 'black', 'shoes', '6', 3000)
 
 
 
 
 // Game Screen
-
+// barbie.el is an element that is a representation of barbie's data for the user to interact with
 barbie.el = document.getElementById('barbie');
-
+// render is a universal word that means that the data has been used to update the representation (or something)
 barbie.render = () => {
     barbie.el.innerHTML = `
     <h1>${barbie.name} Status</h1>
@@ -108,6 +108,7 @@ barbie.render()
 
 const birkinButton = document.getElementById('birkin');
 
+
 birkinButton.addEventListener('click', ()=>{
     if(barbie.wallet >= birkin.price){
         barbie.wardrobe.push(birkin);
@@ -119,7 +120,18 @@ birkinButton.addEventListener('click', ()=>{
     } else {
         alert('Stop trippin you know you aint got it like that');
     }
+})
 
+const rbButton = document.getElementById('red-bottoms')
+
+rbButton.addEventListener('click', ()=>{
+    if(barbie.wallet >= redBottoms.price){
+        barbie.wardrobe.push(redBottoms);
+        barbie.wallet -= redBottoms.price;
+        barbie.render();
+    } else {
+        alert('Stop trippin you know you aint got it like that');
+    }
 })
 
 const workButton = document.getElementById('work');
